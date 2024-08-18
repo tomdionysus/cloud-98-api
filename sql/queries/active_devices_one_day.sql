@@ -1,0 +1,1 @@
+ select CONCAT(user.first_name,' ',user.last_name) as name, user.email, device.id, device.device_name, device.registered_utc, device.last_seen_utc from device, user WHERE user.id=device.user_id AND last_seen_utc>DATE_SUB(NOW(),INTERVAL 1 DAY) order by last_seen_utc desc;

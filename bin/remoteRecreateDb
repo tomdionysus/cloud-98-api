@@ -1,0 +1,5 @@
+#!/bin/sh
+BASEDIR=$(dirname "$0")
+$BASEDIR/recreateDb
+scp sql/dump.sql ubuntu@bastion.cloud98.blackraven.co.nz:~/
+ssh ubuntu@bastion.cloud98.blackraven.co.nz '~/recreateDb'

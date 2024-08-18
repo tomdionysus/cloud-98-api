@@ -1,0 +1,6 @@
+#!/bin/bash
+bin/updateDbSource
+bin/updateSchema.js
+echo 'drop database cloud98; create database cloud98' | mysql -u root
+mysql -u root cloud98 < sql/create_db.sql
+mysql -u root cloud98 < sql/data.sql

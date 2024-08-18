@@ -1,0 +1,18 @@
+[Unit]
+Description=cloud98API
+After=network.target
+ConditionPathExists=/home/api/app
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /home/api/app/index.js
+EnvironmentFile=/home/api/api.env
+User=api
+Group=api
+Restart=on-failure
+RestartSec=10
+StandardOutput=file:/var/log/api/logs.log
+StandardError=file:/var/log/api/logs.log
+
+[Install]
+WantedBy=multi-user.target

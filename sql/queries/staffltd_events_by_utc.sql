@@ -1,0 +1,1 @@
+select cloud98_event.created_utc, user.email, organisation.name, event_type, event_data from cloud98_event left join user on user.id=user_id left join organisation on organisation.id=organisation_id  order by created_utc desc

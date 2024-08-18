@@ -1,0 +1,6 @@
+node_modules
+coverage
+start.sh
+public/css
+.nyc_output
+awsconfig

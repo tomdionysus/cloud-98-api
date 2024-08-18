@@ -1,0 +1,1 @@
+select shift.start_utc, request.status, user.email, premises.name, request.created_utc from request,user,shift,premises where user.id=request.user_id and shift.id = request.shift_id and premises.id = shift.premises_id and shift.start_utc>now() && request.status<>'cancelled';

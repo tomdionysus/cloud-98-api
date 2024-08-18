@@ -1,0 +1,2 @@
+#!/bin/bash
+aws s3 cp s3://cloud98-config/api/api.env awsconfig/api/api.env --region=ap-southeast-2

@@ -1,0 +1,17 @@
+env:
+  es6: true
+  jasmine: true
+
+parserOptions:
+  ecmaVersion: 2017
+  
+plugins:
+  - jasmine
+
+globals: 
+  requireController: true
+  requireServer: true
+  requireMock: true
+  fixturesDir: true
+
+

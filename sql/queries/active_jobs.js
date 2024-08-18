@@ -1,0 +1,1 @@
+select * from shift where status='published' and start_utc<now() and end_utc>now() and shift_type='permanent';

@@ -1,0 +1,1 @@
+SELECT `shift`.`organisation_id`, COUNT(DISTINCT `shift`.`premises_id`) AS c FROM `shift`,`organisation` WHERE `shift`.`status`="published" and `organisation`.`id`=`shift`.`organisation_id` AND `organisation`.`status` <> 'hold' group by `shift`.`organisation_id`;

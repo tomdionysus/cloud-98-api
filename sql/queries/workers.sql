@@ -1,0 +1,1 @@
+select CONCAT(user.first_name, ' ',user.last_name), user.email FROM user WHERE (SELECT COUNT(id) FROM organisation_user WHERE user_id=user.id)=0;

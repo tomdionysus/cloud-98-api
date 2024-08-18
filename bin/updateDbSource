@@ -1,0 +1,4 @@
+#!/bin/bash
+mysqldump -u root --no-data cloud98 > sql/schema.sql 
+mysqldump -u root --extended-insert=TRUE cloud98 > sql/dump.sql 
+mysqldump -u root --no-create-info --complete-insert cloud98 > sql/data.sql 

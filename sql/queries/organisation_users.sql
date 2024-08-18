@@ -1,0 +1,1 @@
+select CONCAT(user.first_name, ' ',user.last_name), user.email, organisation.name, organisation_user.roles from organisation_user, organisation, user WHERE organisation.id=organisation_user.organisation_id AND user.id=organisation_user.user_id AND roles<>'';
