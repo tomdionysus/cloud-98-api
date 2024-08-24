@@ -1,4 +1,4 @@
--- Generated 2024-08-18T00:49:27.430Z
+-- Generated 2024-08-18T05:58:43.233Z
 
 CREATE TABLE `cloud98_event` (
 	`id` BIGINT UNSIGNED NOT NULL PRIMARY KEY,
@@ -12,6 +12,15 @@ CREATE INDEX `idx_cloud98_event_user_id` ON `cloud98_event` (user_id);
 CREATE INDEX `idx_cloud98_event_organisation_id` ON `cloud98_event` (organisation_id);
 CREATE INDEX `idx_cloud98_event_event_type` ON `cloud98_event` (event_type);
 CREATE INDEX `idx_cloud98_event_created_utc` ON `cloud98_event` (created_utc);
+
+CREATE TABLE `compute` (
+	`id` BIGINT UNSIGNED NOT NULL PRIMARY KEY,
+	`ip` VARCHAR(15) NOT NULL,
+	`mac` VARCHAR(14) NOT NULL,
+	`vCPU` SMALLINT UNSIGNED NOT NULL,
+	`memoryKB` INTEGER UNSIGNED NOT NULL,
+	`storageKB` INTEGER UNSIGNED NOT NULL
+);
 
 CREATE FUNCTION `bigid`() RETURNS bigint unsigned NO SQL RETURN (FLOOR(1 + RAND() * POW(2,63)));
 

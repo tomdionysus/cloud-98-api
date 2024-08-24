@@ -1,4 +1,4 @@
-module.exports = function (Table) {
+module.exports = (Table) => {
   const t = new Table('organisation_user')
 
   t.description('Links organisations to users')

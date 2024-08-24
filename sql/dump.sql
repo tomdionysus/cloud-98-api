@@ -16,6 +16,38 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cloud98_event`
+--
+
+DROP TABLE IF EXISTS `cloud98_event`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cloud98_event` (
+  `id` bigint unsigned NOT NULL,
+  `user_id` bigint unsigned DEFAULT NULL,
+  `organisation_id` bigint unsigned DEFAULT NULL,
+  `event_type` varchar(64) NOT NULL,
+  `event_data` json NOT NULL,
+  `created_utc` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_cloud98_event_user_id` (`user_id`),
+  KEY `idx_cloud98_event_organisation_id` (`organisation_id`),
+  KEY `idx_cloud98_event_event_type` (`event_type`),
+  KEY `idx_cloud98_event_created_utc` (`created_utc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cloud98_event`
+--
+
+LOCK TABLES `cloud98_event` WRITE;
+/*!40000 ALTER TABLE `cloud98_event` DISABLE KEYS */;
+INSERT INTO `cloud98_event` VALUES (10200035928760835608,16231354357899152770,1010542858649251200,'subnet.updated','{\"subnet\": {\"id\": \"8771376945287447552\", \"name\": \"BR Main Public\", \"organisation_id\": \"1010542858649251200\"}}','2024-08-18 00:49:35');
+/*!40000 ALTER TABLE `cloud98_event` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `organisation`
 --
 
@@ -84,6 +116,7 @@ CREATE TABLE `subnet` (
   `vpc_id` bigint unsigned NOT NULL,
   `organisation_id` bigint unsigned NOT NULL,
   PRIMARY KEY (`id`),
+  KEY `idx_subnet_vpc_id` (`vpc_id`),
   KEY `idx_subnet_organisation_id` (`organisation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -136,7 +169,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (16231354357899152770,NULL,'Tom','Cully','tomhughcully@gmail.com',NULL,'NZ','bc37ebea1b083121f694548527772df689d2f8ae3031f294bdbdac1ade97cd9da89ada2190f125fb2689f5e53638684486287420f7d89764ec3bb00c699da20f','d2d14e639dd2b2d1685c95acc9809f7617f85e44c0d8efdaf66176661c2dc030','Y',NULL,NULL,'2024-08-18 12:41:20','N','75b8d4af82ee077dda0e18058fbceac909c870f3bd4edca8f9a231f12f91884d8c171ea365f7e0fb280fa61763e96ca815118b9432909b05deefe2a3f72b0e97','2024-08-25 12:41:20');
+INSERT INTO `user` VALUES (16231354357899152770,NULL,'Tom','Cully','tomhughcully@gmail.com',NULL,'NZ','bc37ebea1b083121f694548527772df689d2f8ae3031f294bdbdac1ade97cd9da89ada2190f125fb2689f5e53638684486287420f7d89764ec3bb00c699da20f','d2d14e639dd2b2d1685c95acc9809f7617f85e44c0d8efdaf66176661c2dc030','Y',NULL,NULL,'2024-08-18 16:19:14','N','75b8d4af82ee077dda0e18058fbceac909c870f3bd4edca8f9a231f12f91884d8c171ea365f7e0fb280fa61763e96ca815118b9432909b05deefe2a3f72b0e97','2024-08-25 16:19:14');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,4 +210,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-18 12:49:27
+-- Dump completed on 2024-08-18 17:58:43

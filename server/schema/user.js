@@ -1,4 +1,4 @@
-module.exports = function (Table) {
+module.exports = (Table) => {
   const t = new Table('user')
 
   t.description('Represents a user that can access the system')

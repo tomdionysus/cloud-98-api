@@ -16,6 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cloud98_event`
+--
+
+DROP TABLE IF EXISTS `cloud98_event`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cloud98_event` (
+  `id` bigint unsigned NOT NULL,
+  `user_id` bigint unsigned DEFAULT NULL,
+  `organisation_id` bigint unsigned DEFAULT NULL,
+  `event_type` varchar(64) NOT NULL,
+  `event_data` json NOT NULL,
+  `created_utc` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_cloud98_event_user_id` (`user_id`),
+  KEY `idx_cloud98_event_organisation_id` (`organisation_id`),
+  KEY `idx_cloud98_event_event_type` (`event_type`),
+  KEY `idx_cloud98_event_created_utc` (`created_utc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `organisation`
 --
 
@@ -64,6 +86,7 @@ CREATE TABLE `subnet` (
   `vpc_id` bigint unsigned NOT NULL,
   `organisation_id` bigint unsigned NOT NULL,
   PRIMARY KEY (`id`),
+  KEY `idx_subnet_vpc_id` (`vpc_id`),
   KEY `idx_subnet_organisation_id` (`organisation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -127,4 +150,4 @@ CREATE TABLE `vpc` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-18 12:49:27
+-- Dump completed on 2024-08-18 17:58:42

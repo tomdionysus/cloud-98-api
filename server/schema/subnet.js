@@ -1,6 +1,4 @@
-const Table = require('../../lib/Table')
-
-module.exports = function (Table) {
+module.exports = (Table) => {
   const t = new Table('subnet')
 
   t.description('Represents a VPC subnet')
